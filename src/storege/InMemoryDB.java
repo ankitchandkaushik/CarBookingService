@@ -38,7 +38,7 @@ public class InMemoryDB {
     }
   }
 
-  public boolean reserveCar(Car car, Slot slot) {
+  public synchronized boolean reserveCar(Car car, Slot slot) {
     if(isCarAvailable(car, slot)) {
       cars.get(car.getId()).getBookings().add(slot);
       return true;
